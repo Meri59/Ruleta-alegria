@@ -74,22 +74,36 @@
     </header>
 
     <!-- Main Centered Layout -->
-    <main class="flex flex-col items-center justify-center my-auto z-10 w-full max-w-4xl gap-6">
+    <main class="flex flex-col lg:flex-row items-center justify-center my-4 lg:my-auto z-10 w-full max-w-7xl gap-6 lg:gap-10 xl:gap-14 px-1 sm:px-2">
         
-        <!-- CENTERED WHEEL CONTAINER -->
-        <div class="relative flex flex-col items-center justify-center">
+        <!-- WHEEL: left side on desktop, centered on mobile -->
+        <div class="relative flex flex-col items-center justify-center w-full lg:w-auto lg:flex-none">
             
             <!-- Wheel Outer Frame -->
             <div class="relative p-3 sm:p-5 rounded-full bg-festivePurple wheel-container-shadow border-4 sm:border-8 border-white">
                 
-                <!-- Pointer / Indicator Arrow -->
-                <div class="absolute -top-6 sm:-top-7 left-1/2 -translate-x-1/2 z-30 filter drop-shadow-lg animate-pointer">
-                    <div class="w-0 h-0 border-l-[16px] sm:border-l-[20px] border-l-transparent border-r-[16px] sm:border-r-[20px] border-r-transparent border-t-[32px] sm:border-t-[40px] border-t-festivePurple"></div>
-                    <div class="w-0 h-0 border-l-[10px] sm:border-l-[14px] border-l-transparent border-r-[10px] sm:border-r-[14px] border-r-transparent border-t-[22px] sm:border-t-[28px] border-t-festiveYellow absolute -top-8 sm:-top-10 left-1/2 -translate-x-1/2"></div>
+                <!-- Flecha indicadora -->
+                <div class="absolute -top-2 sm:-top-3 left-[45%] -translate-x-1/2 z-30 animate-pointer">
+
+                    <!-- Base exterior morada -->
+                    <div class="relative w-0 h-0
+                                border-l-[20px] sm:border-l-[24px] border-l-transparent
+                                border-r-[20px] sm:border-r-[24px] border-r-transparent
+                                border-t-[38px] sm:border-t-[46px] border-t-festivePurple">
+
+                        <!-- Punta interior amarilla, superpuesta -->
+                        <div class="absolute top-[-36px] sm:top-[-44px] left-1/2 -translate-x-1/2
+                                    w-0 h-0
+                                    border-l-[13px] sm:border-l-[16px] border-l-transparent
+                                    border-r-[13px] sm:border-r-[16px] border-r-transparent
+                                    border-t-[27px] sm:border-t-[34px] border-t-festiveYellow">
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- Canvas Wheel -->
-                <canvas id="wheelCanvas" width="500" height="500" class="w-[300px] h-[300px] sm:w-[440px] sm:h-[440px] rounded-full transition-all duration-300"></canvas>
+                <canvas id="wheelCanvas" width="500" height="500" class="w-[min(78vw,300px)] h-[min(78vw,300px)] sm:w-[440px] sm:h-[440px] lg:w-[min(36vw,390px)] lg:h-[min(36vw,390px)] xl:w-[440px] xl:h-[440px] rounded-full transition-all duration-300"></canvas>
 
                 <!-- Center Knob -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-tr from-festivePurple to-festivePurpleLight rounded-full border-4 border-white shadow-2xl flex items-center justify-center z-20 pointer-events-none">
@@ -107,8 +121,8 @@
             </button>
         </div>
 
-        <!-- Compact Bottom Status & Order Cards -->
-        <div class="w-full max-w-xl bg-white/90 backdrop-blur-md border-3 border-festivePurple rounded-2xl p-3 sm:p-4 shadow-xl flex flex-col gap-3">
+        <!-- Status and game order: below wheel on mobile, right side on desktop -->
+        <div class="w-full max-w-xl lg:max-w-md xl:max-w-lg lg:flex-1 bg-white/90 backdrop-blur-md border-3 border-festivePurple rounded-2xl p-3 sm:p-4 shadow-xl flex flex-col gap-3">
             
             <div class="flex items-center justify-between border-b-2 border-festivePurple/10 pb-2">
                 <div class="flex items-center gap-2">
@@ -125,20 +139,20 @@
             <div class="grid grid-cols-3 gap-2">
                 <!-- Slot 1 -->
                 <div id="slot-1" class="p-2 rounded-xl border-2 border-festivePurple/20 bg-yellow-50 flex flex-col items-center text-center transition-all">
-                    <span class="w-5 h-5 rounded-full bg-festiveCyan text-white font-black text-xs flex items-center justify-center mb-1">1</span>
-                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Jenga Gigante</p>
+                    <span class="w-5 h-5 rounded-full bg-festivePurpleLight text-white font-black text-xs flex items-center justify-center mb-1">1</span>
+                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Por descubrir</p>
                 </div>
 
                 <!-- Slot 2 -->
                 <div id="slot-2" class="p-2 rounded-xl border-2 border-festivePurple/20 bg-yellow-50 flex flex-col items-center text-center transition-all">
-                    <span class="w-5 h-5 rounded-full bg-festiveMagenta text-white font-black text-xs flex items-center justify-center mb-1">2</span>
-                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Sacudo post-it</p>
+                    <span class="w-5 h-5 rounded-full bg-festivePurpleLight text-white font-black text-xs flex items-center justify-center mb-1">2</span>
+                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Por descubrir</p>
                 </div>
 
                 <!-- Slot 3 -->
                 <div id="slot-3" class="p-2 rounded-xl border-2 border-festivePurple/20 bg-yellow-50 flex flex-col items-center text-center transition-all">
-                    <span class="w-5 h-5 rounded-full bg-festiveOrange text-white font-black text-xs flex items-center justify-center mb-1">3</span>
-                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Encesta los globos</p>
+                    <span class="w-5 h-5 rounded-full bg-festivePurpleLight text-white font-black text-xs flex items-center justify-center mb-1">3</span>
+                    <p class="font-extrabold text-xs text-festivePurple slot-title leading-tight">Por descubrir</p>
                 </div>
             </div>
 
@@ -344,31 +358,71 @@
             }
 
             initAudio();
+
             isSpinning = true;
             document.getElementById('spinBtn').disabled = true;
 
+            // Índice del juego que corresponde al turno actual
             const targetIndex = sequenceIndexes[currentTurn];
 
-            const targetSliceAngle = targetIndex * sliceAngle;
-            const pointerAngle = 1.5 * Math.PI; 
-            const offsetWithinSlice = sliceAngle / 2;
+            // Validar que el índice corresponda a un sector existente
+            if (
+                !Number.isInteger(targetIndex) ||
+                targetIndex < 0 ||
+                targetIndex >= totalSlices
+            ) {
+                isSpinning = false;
+                document.getElementById('spinBtn').disabled = false;
 
-            const desiredAngle = pointerAngle - targetSliceAngle - offsetWithinSlice;
+                console.error('Índice de juego no válido:', targetIndex);
+                return;
+            }
 
-            const extraRotations = (6 + Math.floor(Math.random() * 2)) * 2 * Math.PI;
-            const normalizedStart = startAngle % (2 * Math.PI);
-            const finalAngle = startAngle + extraRotations + (desiredAngle - normalizedStart);
+            // Ángulo central del sector seleccionado
+            const targetSliceCenter =
+                targetIndex * sliceAngle + sliceAngle / 2;
+
+            // El indicador está arriba, a -90 grados
+            const pointerAngle = -Math.PI / 2;
+
+            // Ángulo de rotación necesario para alinear el sector
+            const desiredAngle = pointerAngle - targetSliceCenter;
+
+            // Normalizar el ángulo actual y el ángulo objetivo
+            const fullRotation = 2 * Math.PI;
+
+            const currentNormalized =
+                ((startAngle % fullRotation) + fullRotation) % fullRotation;
+
+            const targetNormalized =
+                ((desiredAngle % fullRotation) + fullRotation) % fullRotation;
+
+            // Calcular cuánto debe girar hacia adelante
+            const remainingAngle =
+                (targetNormalized - currentNormalized + fullRotation) %
+                fullRotation;
+
+            // Añadir entre 6 y 7 vueltas completas
+            const extraRotations =
+                (6 + Math.floor(Math.random() * 2)) * fullRotation;
+
+            const initialAngle = startAngle;
+            const finalAngle = initialAngle + extraRotations + remainingAngle;
 
             const spinDuration = 5000;
             const startTime = performance.now();
-            let lastTickAngle = startAngle;
+            let lastTickAngle = initialAngle;
 
             function animateSpin(now) {
                 const elapsed = now - startTime;
                 const progress = Math.min(elapsed / spinDuration, 1);
+
+                // Desaceleración suave
                 const easeOut = 1 - Math.pow(1 - progress, 4);
 
-                startAngle = startAngle + (finalAngle - startAngle) * (easeOut - (progress > 0 ? (1 - Math.pow(1 - (elapsed - 16) / spinDuration, 4)) : 0));
+                // Interpolación desde el ángulo inicial hasta el final
+                startAngle =
+                    initialAngle + (finalAngle - initialAngle) * easeOut;
 
                 if (Math.abs(startAngle - lastTickAngle) >= sliceAngle) {
                     playTickSound();
@@ -380,11 +434,14 @@
                 if (progress < 1) {
                     requestAnimationFrame(animateSpin);
                 } else {
+                    // Fijar el ángulo final exacto
                     startAngle = finalAngle;
                     drawWheel();
+
                     isSpinning = false;
                     document.getElementById('spinBtn').disabled = false;
-                    
+
+                    // Mostrar el juego correspondiente al sector seleccionado
                     handleWinResult(targetIndex);
                 }
             }
@@ -404,6 +461,11 @@
                 slotElem.classList.add('bg-festivePurple', 'border-festiveYellow', 'text-white');
 
                 const titleElem = slotElem.querySelector('.slot-title');
+
+                // Revelar el juego que acaba de salir
+                titleElem.textContent = slices[index].labelLines.join(' ');
+
+                // Cambiar el color del texto del juego revelado
                 titleElem.classList.remove('text-festivePurple');
                 titleElem.classList.add('text-festiveYellow');
             }
@@ -487,18 +549,40 @@
         }
 
         function resetGameSequence() {
+            // Reiniciar el turno y el estado de la ruleta
             currentTurn = 0;
+            isSpinning = false;
+
+            // Restaurar el indicador de progreso
             updateProgressState();
+
+            // Ocultar el botón de reinicio
             document.getElementById('resetBtn').classList.add('hidden');
 
+            // Restaurar los tres espacios de juegos
             for (let i = 1; i <= 3; i++) {
                 const slotElem = document.getElementById(`slot-${i}`);
-                slotElem.className = 'p-2 rounded-xl border-2 border-festivePurple/20 bg-yellow-50 flex flex-col items-center text-center transition-all';
-                
+
+                // Restaurar el diseño original del espacio
+                slotElem.className =
+                    'p-2 rounded-xl border-2 border-festivePurple/20 bg-yellow-50 flex flex-col items-center text-center transition-all';
+
+                // Restaurar el texto y su color
                 const titleElem = slotElem.querySelector('.slot-title');
-                titleElem.className = 'font-extrabold text-xs text-festivePurple slot-title leading-tight';
+
+                titleElem.className =
+                    'font-extrabold text-xs text-festivePurple slot-title leading-tight';
+
+                titleElem.textContent = 'Por descubrir';
             }
 
+            // Habilitar nuevamente el botón de giro
+            document.getElementById('spinBtn').disabled = false;
+
+            // Restaurar el texto del botón
+            document.getElementById('btnText').textContent = '¡GIRAR RULETA!';
+
+            // Dibujar nuevamente la ruleta
             drawWheel();
         }
 
